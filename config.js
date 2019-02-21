@@ -2,7 +2,7 @@
 
 	// Host address for the server. To create a publicly accessible signalling server this will
 	// need to be a public Internet-facing non-translated IP address of the local server.
-	server_host: "localhost",
+	server_host: "18.225.6.244",
 	
 	// Optional override of server port. It is strongly recommended not to specify this. The server
 	// will use port 80 without SSL and port 443 with SSL, which are standard ports. Choosing a
@@ -14,16 +14,16 @@
 	// NAT devices in use on the Internet, insecure WebSocket connections may not be able to connect
 	// where a secure WebSocket connection can. Encryption prevents buggy packet-inspecting
 	// middleboxes from meddling with the traffic on the assumption port 80 is HTTP web traffic.
-	ssl: true,
-	ssl_key: "ssl.key",		// path to key file
-	ssl_cert: "ssl.pem",		// path to certificate
+	ssl: false,
+	ssl_key: "hecate.key",		// path to key file
+	ssl_cert: "hecate.pem",		// path to certificate
 	
 	// Server name, operator and "message of the day". These can be anything you like and are reported
 	// through the Multiplayer object's expressions upon connecting. Note the server must be restarted
 	// for any of these changes to take effect.
-	server_name: "My Multiplayer Signalling Server",
-	server_operator: "MyCompany",
-	server_motd: "Welcome to the MyCompany Multiplayer Signalling server!",
+	server_name: "HecateServer",
+	server_operator: "Hecate",
+	server_motd: "Hecate is online!",
 	
 	// ICE (Interactive Connectivity Establishment) servers. These are STUN or TURN servers that
 	// can help clients connect through routers, firewalls and other NAT devices. The signalling
@@ -42,13 +42,12 @@
 		// To specify a server with a username and credential (commonly used by TURN servers),
 		// instead of a string use an object in this format:
 		// (note this format is only supported by r177+)
-		/*
+		
 		{
-			"urls": "turn:example.org",
-			"username": "myusername",
-			"credential": "mycredential"
+			"urls": "turn:18.225.6.244:3478",
+			"credential": "root"
 		}
-		*/
+		
 	],
 	
 	// All the below defaults are recommended values. Do not change unless you have
