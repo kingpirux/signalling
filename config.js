@@ -1,14 +1,14 @@
-﻿module.exports = {
+module.exports = {
 
 	// Host address for the server. To create a publicly accessible signalling server this will
 	// need to be a public Internet-facing non-translated IP address of the local server.
-	server_host: "18.225.6.244",
+	server_host: "3.88.4.51",
 	
 	// Optional override of server port. It is strongly recommended not to specify this. The server
 	// will use port 80 without SSL and port 443 with SSL, which are standard ports. Choosing a
 	// non-standard port may cause some firewalls, routers or NAT devices to block the connection.
 	
-	//server_port: 80,
+	server_port: 3000,
 	
 	// SSL configuration. Use of SSL is strongly recommended. Due to some firewalls, routers or
 	// NAT devices in use on the Internet, insecure WebSocket connections may not be able to connect
@@ -55,36 +55,36 @@
 	
 	// The maximum number of connected clients before the server will start rejecting
 	// newly connecting clients as "server full".
-	//max_clients: 100000,
+	max_clients: 300,
 	
 	// Delay in ms to send a ping to a client if it has not been heard from in this time.
 	// To ensure a high capacity of connected clients, it should be a long delay, otherwise
 	// the bandwidth will be filled with constant ping requests.
-	//ping_frequency: 10000,
+	ping_frequency: 200000,
 	
 	// Delay in ms in which if no response received (including to any pings) then the client
 	// will be kicked as timed out. Recommended to be 2.5x the ping interval.
-	//client_timeout: 25000,
+	client_timeout: 500000,
 	
 	// Delay in ms in which if a client is connected and responding but idle (not in a game)
 	// then the server will kick them as inactive. This prevents AFK clients accumulating
 	// and wasting server resources.
-	//inactive_timeout: 1200000,
+	inactive_timeout: 1200000,
 	
 	// Delay in ms in which peers must successfully connect to the room host when joining a game.
 	// If the host does not confirm that they connected successfully in this time, the signalling
 	// server will kick them from the room on the assumption the host is unreachable.
-	//confirm_timeout: 20000,
+	confirm_timeout: 35000,
 	
 	// If the room host fails to confirm a peer this many times, they are kicked from the room on
 	// the assumption their network configuration is preventing anyone from connecting to them
 	// at all. This prevents unreachable hosts blocking rooms permanently.
-	//host_max_unconfirmed: 5,
+	host_max_unconfirmed: 10,
 	
 	// Maximum number of inbound messages from a client per 'ping_frequency' interval . If this
 	// is exceeded, the client is kicked for flooding. This helps avoid both deliberate abuse
 	// as well as accidental bugs that inadvertently spam the server and risk draining its resources.
-	//flood_limit: 200,
+	flood_limit: 1000,
 	
 	// Number of characters to use in client ID strings. This should be as short as possible to
 	// ensure low-bandwidth transmissions. Client IDs choose from 36 characters so 4 digits provides
@@ -92,13 +92,13 @@
 	//client_id_digits: 4,			// 36 ^ 4 = ~1.6m
 	
 	// Maximum allowed length of client aliases, to prevent trolls choosing extremely long names.
-	//max_alias_length: 30,
+	max_alias_length: 20,
 	
 	// Maximum allowed length of game, instance and room names, to prevent user-chosen names
 	// trolling with extremely long names.
-	//max_name_length: 100,
+	max_name_length: 30,
 	
 	// Maximum number of peers allowed per unique game (applying to all instances and rooms
 	// therein), or 0 if unlimited.
-	//max_game_peers: 0
+	max_game_peers: 5
 };
